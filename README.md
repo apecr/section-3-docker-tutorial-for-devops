@@ -21,3 +21,14 @@ docker ps # List all the containers
 docker stop <imageId> # Stop the container from the previous section
 docker run -d -p 5002:5000 <imageId>
 ```
+
+### 22. Create Docker Container Links
+
+```
+docker stop <previousImageId>
+docker run -d --name redis redis:3.2.
+docker build -t dockerapp:v0.3 .
+docker run -d -p 5002:5000 --link redis dockerapp:v0.3
+docker exec -it <dockerappContainerId> bash
+more /etc/hosts # See the entry for the redis container
+```
