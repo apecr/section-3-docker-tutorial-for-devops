@@ -31,4 +31,13 @@ docker build -t dockerapp:v0.3 .
 docker run -d -p 5002:5000 --link redis dockerapp:v0.3
 docker exec -it <dockerappContainerId> bash
 more /etc/hosts # See the entry for the redis container
+exit # Exit the container
+docker inspect <dockerImageRedisIdInDockerappContainer> | grep IP
+```
+
+### 23.- Automate current workflow with Docker Compose
+
+```
+docker-compose up
+docker ps # Vemos todos los servidores levantados
 ```
